@@ -1,13 +1,15 @@
 package main
 
 import (
+	"context"
+	"errors"
 	"fmt"
 	"math"
 	"os"
 	"strconv"
 )
 
-func getCoefficient(name string, args []string, index int) float64 {
+func getCoefficient(ctx context.Context, name string, args []string, index int) float64 {
 	for {
 		if len(args) > index {
 			value, err := strconv.ParseFloat(args[index], 64)
@@ -15,6 +17,10 @@ func getCoefficient(name string, args []string, index int) float64 {
 				fmt.Printf("Коэффициент %s=%f\n", name, value)
 				return value
 			}
+
+			err2 := errors.New("error123")
+
+			errors.Is(err, err2)
 
 			fmt.Println("Некорректное значение для", name)
 		}
