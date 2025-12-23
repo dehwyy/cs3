@@ -1,0 +1,7 @@
+[workspace]
+members = ["apps/stream_x/m3u8_receiver", "libraries/rs/config", "libraries/rs/log"]
+resolver = "2"
+
+[workspace.dependencies]
+config = {path = "./libraries/rs/config"}
+log = {path = "./libraries/rs/log"}
